@@ -19,5 +19,13 @@ jobs:
       - run: |
           python -m pip install --upgrade pip
           pip install requests
+      - run:
+          name: set the active PR branch as an environment variable
+          command: |
+            echo 'export DBT_JOB_BRANCH=${CIRCLE_BRANCH}' >> $BASH_ENV
+      - run:
+          name: create a schema override
+          command: |
+            echo 'export DBT_JOB_SCHEMA_OVERRIDE=PR_CIRCLECI_ACTIONS_${CIRCLE_SHA1}' >> $BASH_ENV
       - run: |
           python -u ./python/run_and_monitor_dbt_cloud_job.py
