@@ -11,8 +11,8 @@ jobs:
       DBT_ACCOUNT_ID:          66543
       DBT_PROJECT_ID:          152723
       DBT_PR_JOB_ID:           123539
-      DBT_JOB_SCHEMA_OVERRIDE: PR_CIRCLECI_ACTIONS_${{github.event.pull_request.number}}
-      DBT_JOB_BRANCH:          ${{github.head_ref}}
+      #DBT_JOB_SCHEMA_OVERRIDE: DBT_CIRCLECI_ACTIONS_${{github.event.pull_request.number}}
+      #DBT_JOB_BRANCH:          ${{github.head_ref}} 
     steps:
       - checkout
       - run: python --version
